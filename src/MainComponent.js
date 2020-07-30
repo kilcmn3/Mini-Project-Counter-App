@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ButtonComponent from './ButtonComponent';
 class MainComponent extends Component {
   constructor(props) {
     super(props);
@@ -15,15 +15,7 @@ class MainComponent extends Component {
   render() {
     return (
       <div>
-        <div className='button'>
-          Number #{this.state.count}
-          <button onClick={this.handleClick}>
-            This is button for increasing.Number.
-          </button>
-          Number #{this.state.count}
-          <button>This is button for decreasing</button>
-          <button>This is button for deleting</button>
-        </div>
+        <ButtonComponent />
       </div>
     );
   }
