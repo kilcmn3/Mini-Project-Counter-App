@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const ButtonComponent = () => {
+const ButtonComponent = (props) => {
   const [count, setCount] = useState(0);
+  const [remove, setRemove] = useState(true);
 
   const handleDecrease = () => {
     if (count === 0) {
@@ -10,12 +11,17 @@ const ButtonComponent = () => {
       setCount(count - 1);
     }
   };
-  return (
+
+  console.log(remove);
+  return remove ? (
     <div>
       {count}
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => handleDecrease()}>Decrease</button>
+      <button onClick={() => setRemove(false)}>Remove Button</button>
     </div>
+  ) : (
+    false
   );
 };
 export default ButtonComponent;
