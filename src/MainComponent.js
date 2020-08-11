@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import ButtonComponent from './ButtonComponent';
 
 const MainComponent = () => {
-  const [remove, setRemove] = useState(true);
+  const [count, setCount] = useState(0);
 
+  const handleCount = () => {
+    setCount(count + 1);
+  };
+  console.log(count);
   return (
     <div>
-      <ButtonComponent remove={remove} />
-      <ButtonComponent remove={remove} />
-      <ButtonComponent remove={remove} />
-      <ButtonComponent remove={remove} />
+      <ButtonComponent handleCount={handleCount} />
+      <ButtonComponent handleCount={handleCount} />
+      <ButtonComponent handleCount={handleCount} />
+      <ButtonComponent handleCount={handleCount} />
     </div>
   );
 };

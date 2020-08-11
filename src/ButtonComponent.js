@@ -12,12 +12,17 @@ const ButtonComponent = (props) => {
     }
   };
 
+  const handleRemove = () => {
+    setRemove(false);
+    props.handleCount();
+  };
+
   return remove ? (
     <div>
       {count}
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => handleDecrease()}>Decrease</button>
-      <button onClick={() => setRemove(false)}>Remove Button</button>
+      <button onClick={() => handleRemove()}>Remove Button</button>
     </div>
   ) : (
     false
