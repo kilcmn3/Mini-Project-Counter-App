@@ -12,7 +12,6 @@ const ButtonComponent = (props) => {
     }
   };
 
-  console.log(remove);
   return remove ? (
     <div>
       {count}

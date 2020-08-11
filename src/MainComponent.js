@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonComponent from './ButtonComponent';
 
 const MainComponent = () => {
+  const [remove, setRemove] = useState(true);
+
   return (
     <div>
-      <ButtonComponent />
-      <ButtonComponent />
-      <ButtonComponent />
-      <ButtonComponent />
+      <ButtonComponent remove={remove} />
+      <ButtonComponent remove={remove} />
+      <ButtonComponent remove={remove} />
+      <ButtonComponent remove={remove} />
     </div>
   );
 };
