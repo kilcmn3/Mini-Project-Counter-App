@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import ButtonComponent from './ButtonComponent';
 
 const MainComponent = () => {
-  const [count, setCount] = useState(0);
+  const [zero, setZero] = useState(false);
 
-  const handleCount = () => {
-    setCount(count + 1);
-  };
+  useEffect(() => {
+    return () => {
+      setZero(false);
+    };
+  }, [zero]);
 
   return (
     <div>
-      <button>All zero</button>
+      <button onClick={() => setZero(true)}>All zero</button>
       <button disabled={false}>Reset All button</button>
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
+      <ButtonComponent zero={zero} />
+      <ButtonComponent zero={zero} />
+      <ButtonComponent zero={zero} />
+      <ButtonComponent zero={zero} />
     </div>
   );
 };
