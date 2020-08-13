@@ -3,13 +3,20 @@ import ButtonComponent from './ButtonComponent';
 
 const MainComponent = () => {
   const [count, setCount] = useState(0);
+  const [zero, setZero] = useState(false);
 
   const handleCount = () => {
     setCount(count + 1);
   };
-  console.log(count);
+
+  const handleClick = () => {
+    setCount(true);
+  };
+
   return (
     <div>
+      <button onClick={handleClick}>All zero</button>
+      <button disabled={false}>Reset All button</button>
       <ButtonComponent handleCount={handleCount} />
       <ButtonComponent handleCount={handleCount} />
       <ButtonComponent handleCount={handleCount} />
