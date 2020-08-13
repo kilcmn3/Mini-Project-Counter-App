@@ -10,17 +10,17 @@ const MainComponent = () => {
   };
 
   const handleClick = () => {
-    setCount(true);
+    setZero(true);
   };
 
   return (
     <div>
       <button onClick={handleClick}>All zero</button>
       <button disabled={false}>Reset All button</button>
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
-      <ButtonComponent handleCount={handleCount} />
+      <ButtonComponent handleCount={handleCount} zero={zero} />
+      <ButtonComponent handleCount={handleCount} zero={zero} />
+      <ButtonComponent handleCount={handleCount} zero={zero} />
+      <ButtonComponent handleCount={handleCount} zero={zero} />
     </div>
   );
 };

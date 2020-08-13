@@ -13,8 +13,9 @@ const ButtonComponent = (props) => {
   };
 
   const backToZero = () => {
+    console.log('back to zero');
     setCount(0);
-    return count;
+    return 0;
   };
 
   const handleRemove = () => {
