@@ -12,12 +12,6 @@ const ButtonComponent = (props) => {
     }
   };
 
-  const backToZero = () => {
-    console.log('back to zero');
-    setCount(0);
-    return 0;
-  };
-
   const handleRemove = () => {
     setRemove(false);
     props.handleCount();
@@ -25,7 +19,7 @@ const ButtonComponent = (props) => {
 
   return remove ? (
     <div>
-      {props.zero ? backToZero() : count}
+      {count}
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => handleDecrease()}>Decrease</button>
       <button onClick={() => handleRemove()}>Remove Button</button>
