@@ -17,7 +17,7 @@ const ButtonComponent = (props) => {
   };
   return remove ? (
     <div>
-      {props.zero ? setCount(0) : count}
+      {count}
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => handleDecrease()}>Decrease</button>
       <button onClick={() => handleRemove()}>Remove Button</button>
