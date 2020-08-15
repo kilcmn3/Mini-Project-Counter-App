@@ -25,7 +25,7 @@
 
  4. Calling and cleaning up on Every render
     ex.) useEffect(fucntion callMeAndCleanUpEveryRender(){
-        return functiono foo(){
+        return function foo(){
         };
     });
  5. Calling on Mount and clean up before on mount 

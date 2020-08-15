@@ -2,22 +2,24 @@ import React, { useState, useEffect } from 'react';
 import ButtonComponent from './ButtonComponent';
 
 const MainComponent = () => {
-  const [zero, setZero] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    return () => {
-      setZero(false);
-    };
-  }, [zero]);
+  const handleClick = () => {
+    // let child component that all zero button has been triggered.
+    // set 'count' back to zero ,
+    // toggle back the button to false
+    setToggle(!toggle);
+  };
 
   return (
     <div>
-      <button onClick={() => setZero(true)}>All zero</button>
+      {toggle}
+      <button onClick={handleClick}>All zero</button>
       <button disabled={false}>Reset All button</button>
-      <ButtonComponent zero={zero} />
-      <ButtonComponent zero={zero} />
-      <ButtonComponent zero={zero} />
-      <ButtonComponent zero={zero} />
+      <ButtonComponent toggle={toggle} />
+      <ButtonComponent toggle={toggle} />
+      <ButtonComponent toggle={toggle} />
+      <ButtonComponent toggle={toggle} />
     </div>
   );
 };
