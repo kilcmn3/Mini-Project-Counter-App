@@ -4,11 +4,6 @@ const ButtonComponent = (props) => {
   const [count, setCount] = useState(0);
   const [remove, setRemove] = useState(true);
 
-  useEffect(() => {
-    console.log('child compe');
-    setCount(0);
-  }, [props.toggle]);
-
   const handleDecrease = () => {
     if (count === 0) {
       setCount(0);
@@ -22,7 +17,7 @@ const ButtonComponent = (props) => {
   };
   return remove ? (
     <div>
-      {props.toggle === 1 ? setCount(0) : count}
+      {count}
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => handleDecrease()}>Decrease</button>
       <button onClick={() => handleRemove()}>Remove Button</button>
