@@ -7,7 +7,9 @@ class MainComponent extends Component {
     this.state = {
       counter: [
         { id: 0, count: 0 },
-        { id: 1, count: 1 },
+        { id: 1, count: 0 },
+        { id: 2, count: 0 },
+        { id: 3, count: 0 },
       ],
     };
   }
@@ -16,10 +18,10 @@ class MainComponent extends Component {
       <div>
         <button>All zero</button>
         <button disabled={false}>Reset All button</button>
-        <ButtonComponent />
-        <ButtonComponent />
-        <ButtonComponent />
-        <ButtonComponent />
+        <ButtonComponent firstCount={this.state['counter'][0]} />
+        <ButtonComponent secondCount={this.state['counter'][1]} />
+        <ButtonComponent thirdCount={this.state['counter'][2]} />
+        <ButtonComponent fourthCount={this.state['counter'][3]} />
       </div>
     );
   }
