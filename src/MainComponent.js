@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import ButtonComponent from './ButtonComponent';
 
 class MainComponent extends Component {
@@ -13,15 +13,30 @@ class MainComponent extends Component {
       ],
     };
   }
+  handleIncrease = (n) => {
+    console.log(n);
+  };
   render() {
     return (
       <div>
         <button>All zero</button>
         <button disabled={false}>Reset All button</button>
-        <ButtonComponent firstCount={this.state['counter'][0]} />
-        <ButtonComponent secondCount={this.state['counter'][1]} />
-        <ButtonComponent thirdCount={this.state['counter'][2]} />
-        <ButtonComponent fourthCount={this.state['counter'][3]} />
+        <ButtonComponent
+          counter={this.state['counter'][0]}
+          handleIncrease={this.handleIncrease}
+        />
+        <ButtonComponent
+          counter={this.state['counter'][1]}
+          handleIncrease={this.handleIncrease}
+        />
+        <ButtonComponent
+          counter={this.state['counter'][2]}
+          handleIncrease={this.handleIncrease}
+        />
+        <ButtonComponent
+          counter={this.state['counter'][3]}
+          handleIncrease={this.handleIncrease}
+        />
       </div>
     );
   }
