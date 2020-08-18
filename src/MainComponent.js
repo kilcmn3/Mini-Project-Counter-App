@@ -6,12 +6,13 @@ class MainComponent extends Component {
     super(props);
     this.state = {
       counter: [
-        { id: 0, count: 0 },
-        { id: 1, count: 0 },
-        { id: 2, count: 0 },
-        { id: 3, count: 0 },
+        { id: 0, count: 0, toggle: true },
+        { id: 1, count: 0, toggle: true },
+        { id: 2, count: 0, toggle: true },
+        { id: 3, count: 0, toggle: true },
       ],
-      toggle: true,
+      toggleCount: 0,
+      isToggle: true,
     };
   }
   handleIncrease = (e, n) => {
@@ -38,35 +39,39 @@ class MainComponent extends Component {
     this.setState({ counter: newstate });
   };
 
+  handleRemove = () => {
+    if(this.state.toggleCount)
+  };
+
   //TODO: Working on button disabled and reset
   render() {
     return (
       <div>
         <button>All zero</button>
-        <button disabled={!this.state.toggle}>Reset All button</button>
+        <button disabled={this.state.isToggle}>Reset All button</button>
         <ButtonComponent
           counter={this.state['counter'][0]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][1]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][2]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][3]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
       </div>
     );
