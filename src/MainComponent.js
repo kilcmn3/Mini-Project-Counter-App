@@ -13,8 +13,15 @@ class MainComponent extends Component {
       ],
     };
   }
-  handleIncrease = (n) => {
-    console.log(n);
+  handleIncrease = (e, n) => {
+    this.setState((prevState) => {
+      return prevState.counter.map((target) => {
+        if (target.id === n.id) {
+          target.count = target.count + 1;
+        }
+        return target;
+      });
+    });
   };
   render() {
     return (
