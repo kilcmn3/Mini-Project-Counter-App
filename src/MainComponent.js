@@ -38,6 +38,7 @@ class MainComponent extends Component {
     this.setState({ counter: newstate });
   };
 
+  //TODO: Working on button disabled and reset
   render() {
     return (
       <div>
