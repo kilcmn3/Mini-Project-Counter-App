@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ButtonComponent = (props) => {
   const count = props['counter'];
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(props.toggle);
 
   return toggle ? (
     <div>
