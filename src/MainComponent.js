@@ -14,14 +14,13 @@ class MainComponent extends Component {
     };
   }
   handleIncrease = (e, n) => {
-    this.setState((prevState) => {
-      return prevState.counter.map((target) => {
-        if (target.id === n.id) {
-          target.count = target.count + 1;
-        }
-        return target;
-      });
+    let newstate = this.state.counter.map((target) => {
+      if (target.id === n.id) {
+        target.count++;
+      }
+      return target;
     });
+    this.setState({ counter: newstate });
   };
   render() {
     return (
