@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ButtonComponent = (props) => {
   const count = props['counter'];
-  return (
+  const [toggle, setToggle] = useState(true);
+
+  return toggle ? (
     <div>
       {count['count']}
       <button onClick={(e) => props.handleIncrease(e, count)}>Increase</button>
-      <button onClick={props.handleDecrease}>Decrease</button>
-      <button onClick={props.handleRemove}>Remove Button</button>
+      <button onClick={(e) => props.handleDecrease(e, count)}>Decrease</button>
+      <button onClick={() => setToggle(!toggle)}>Remove Button</button>
     </div>
+  ) : (
+    toggle
   );
 };
 export default ButtonComponent;

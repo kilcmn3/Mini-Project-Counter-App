@@ -22,6 +22,21 @@ class MainComponent extends Component {
     });
     this.setState({ counter: newstate });
   };
+
+  handleDecrease = (e, n) => {
+    let newstate = this.state.counter.map((target) => {
+      if (target.id === n.id) {
+        if (target.count === 0) {
+          target.count = 0;
+        } else {
+          target.count--;
+        }
+      }
+      return target;
+    });
+    this.setState({ counter: newstate });
+  };
+
   render() {
     return (
       <div>
@@ -30,18 +45,22 @@ class MainComponent extends Component {
         <ButtonComponent
           counter={this.state['counter'][0]}
           handleIncrease={this.handleIncrease}
+          handleDecrease={this.handleDecrease}
         />
         <ButtonComponent
           counter={this.state['counter'][1]}
           handleIncrease={this.handleIncrease}
+          handleDecrease={this.handleDecrease}
         />
         <ButtonComponent
           counter={this.state['counter'][2]}
           handleIncrease={this.handleIncrease}
+          handleDecrease={this.handleDecrease}
         />
         <ButtonComponent
           counter={this.state['counter'][3]}
           handleIncrease={this.handleIncrease}
+          handleDecrease={this.handleDecrease}
         />
       </div>
     );
