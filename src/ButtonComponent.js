@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const ButtonComponent = (props) => {
-  const [count, setCount] = useState(0);
-  const [remove, setRemove] = useState(true);
+  const count = props['counter'];
+  const [toggle, setToggle] = useState(props.toggle);
 
-  const handleDecrease = () => {
-    if (count === 0) {
-      setCount(0);
-    } else {
-      setCount(count - 1);
-    }
-  };
-
-  const handleRemove = () => {
-    setRemove(false);
-  };
-  return remove ? (
+  return toggle ? (
     <div>
-      {count}
-      <button onClick={() => setCount(count + 1)}>Increase</button>
-      <button onClick={() => handleDecrease()}>Decrease</button>
-      <button onClick={() => handleRemove()}>Remove Button</button>
+      {count['count']}
+      <button onClick={(e) => props.handleIncrease(e, count)}>Increase</button>
+      <button onClick={(e) => props.handleDecrease(e, count)}>Decrease</button>
+      <button onClick={() => setToggle(!toggle)}>Remove Button</button>
     </div>
   ) : (
-    false
+    toggle
   );
 };
 export default ButtonComponent;
