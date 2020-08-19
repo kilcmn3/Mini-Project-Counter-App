@@ -16,13 +16,16 @@ class MainComponent extends Component {
     };
   }
   handleIncrease = (e, n) => {
-    let newstate = this.state.counter.map((target) => {
-      if (target.id === n.id) {
-        target.count++;
-      }
-      return target;
+    // let newstate = this.state.counter.map((target) => {
+    //   if (target.id === n.id) {
+    //     target.count++;
+    //   }
+    //   return target;
+    // });
+    // this.setState({ counter: newstate });
+    this.setState((state, props) => {
+      console.log(props);
     });
-    this.setState({ counter: newstate });
   };
 
   handleDecrease = (e, n) => {
@@ -40,7 +43,8 @@ class MainComponent extends Component {
   };
 
   handleRemove = () => {
-    if(this.state.toggleCount)
+    if (this.state.toggleCount < 4) {
+    }
   };
 
   //TODO: Working on button disabled and reset
