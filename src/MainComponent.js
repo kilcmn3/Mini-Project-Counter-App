@@ -12,24 +12,20 @@ class MainComponent extends Component {
         { id: 3, count: 0, toggle: true },
       ],
       toggleCount: 0,
-      isToggle: true,
     };
   }
   handleIncrease = (e, n) => {
-    // let newstate = this.state.counter.map((target) => {
-    //   if (target.id === n.id) {
-    //     target.count++;
-    //   }
-    //   return target;
-    // });
-    // this.setState({ counter: newstate });
-    this.setState((state, props) => {
-      console.log(props);
+    let newState = this.state.counter.map((target) => {
+      if (target.id === n.id) {
+        target.count++;
+      }
+      return target;
     });
+    this.setState({ counter: newState });
   };
 
   handleDecrease = (e, n) => {
-    let newstate = this.state.counter.map((target) => {
+    let newState = this.state.counter.map((target) => {
       if (target.id === n.id) {
         if (target.count === 0) {
           target.count = 0;
@@ -39,20 +35,32 @@ class MainComponent extends Component {
       }
       return target;
     });
-    this.setState({ counter: newstate });
+    this.setState({ counter: newState });
   };
 
-  handleRemove = () => {
-    if (this.state.toggleCount < 4) {
-    }
+  handleRemove = (e, n) => {
+    let newState = this.state.counter.map((target) => {
+      if (target.id === n.id) {
+        target.toggle = false;
+      }
+      return target;
+    });
+    this.setState((prevState) => {
+      return {
+        counter: newState,
+        toggleCount: prevState.toggleCount + 1,
+      };
+    });
   };
 
-  //TODO: Working on button disabled and reset
   render() {
+    console.log(this.state.toggleCount);
     return (
       <div>
         <button>All zero</button>
-        <button disabled={this.state.isToggle}>Reset All button</button>
+        <button disabled={this.state.toggleCount < 4 ? true : false}>
+          Reset All button
+        </button>
         <ButtonComponent
           counter={this.state['counter'][0]}
           handleIncrease={this.handleIncrease}
