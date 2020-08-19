@@ -60,10 +60,18 @@ class MainComponent extends Component {
     });
     this.setState({ counter: newState, toggleCount: 0 });
   };
+
+  handleAllzero = () => {
+    let newState = this.state.counter.map((target) => {
+      target.count = 0;
+      return target;
+    });
+    this.setState({ counter: newState });
+  };
   render() {
     return (
       <div>
-        <button>All zero</button>
+        <button onClick={this.handleAllzero}>All zero</button>
         <button
           disabled={this.state.toggleCount < 4 ? true : false}
           onClick={this.handleReset}>
