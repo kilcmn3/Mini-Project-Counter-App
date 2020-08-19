@@ -6,26 +6,26 @@ class MainComponent extends Component {
     super(props);
     this.state = {
       counter: [
-        { id: 0, count: 0 },
-        { id: 1, count: 0 },
-        { id: 2, count: 0 },
-        { id: 3, count: 0 },
+        { id: 0, count: 0, toggle: true },
+        { id: 1, count: 0, toggle: true },
+        { id: 2, count: 0, toggle: true },
+        { id: 3, count: 0, toggle: true },
       ],
-      toggle: true,
+      toggleCount: 0,
     };
   }
   handleIncrease = (e, n) => {
-    let newstate = this.state.counter.map((target) => {
+    let newState = this.state.counter.map((target) => {
       if (target.id === n.id) {
         target.count++;
       }
       return target;
     });
-    this.setState({ counter: newstate });
+    this.setState({ counter: newState });
   };
 
   handleDecrease = (e, n) => {
-    let newstate = this.state.counter.map((target) => {
+    let newState = this.state.counter.map((target) => {
       if (target.id === n.id) {
         if (target.count === 0) {
           target.count = 0;
@@ -35,38 +35,55 @@ class MainComponent extends Component {
       }
       return target;
     });
-    this.setState({ counter: newstate });
+    this.setState({ counter: newState });
   };
 
-  //TODO: Working on button disabled and reset
+  handleRemove = (e, n) => {
+    let newState = this.state.counter.map((target) => {
+      if (target.id === n.id) {
+        target.toggle = false;
+      }
+      return target;
+    });
+    this.setState((prevState) => {
+      return {
+        counter: newState,
+        toggleCount: prevState.toggleCount + 1,
+      };
+    });
+  };
+
   render() {
+    console.log(this.state.toggleCount);
     return (
       <div>
         <button>All zero</button>
-        <button disabled={!this.state.toggle}>Reset All button</button>
+        <button disabled={this.state.toggleCount < 4 ? true : false}>
+          Reset All button
+        </button>
         <ButtonComponent
           counter={this.state['counter'][0]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][1]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][2]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
         <ButtonComponent
           counter={this.state['counter'][3]}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}
-          toggle={this.state.toggle}
+          handleRemove={this.handleRemove}
         />
       </div>
     );
